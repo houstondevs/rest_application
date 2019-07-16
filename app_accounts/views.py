@@ -23,7 +23,7 @@ from api.permissions import IsObjectOwner
 
 
 sensitive_post_parameters_m = method_decorator(
-    sensitive_post_parameters('password1', 'password2')
+    sensitive_post_parameters('password1', 'password2', 'old_password', 'new_password1', 'new_password2')
 )
 
 User = get_user_model()
@@ -103,6 +103,10 @@ class UserDetailView(generics.RetrieveUpdateAPIView):
 class UserPasswordChangeView(views.APIView):
     permission_classes = (permissions.IsAuthenticated,)
 
+    @sensitive_post_parameters_m
+    def dispatch(self, *args, **kwargs):
+        return super(UserPasswordChangeView, self).dispatch(*args, **kwargs)
+
     def get_serializer(self, *args, **kwargs):
         return UserChangePasswordSerializer(*args, **kwargs)
 
@@ -159,6 +163,10 @@ class UserPasswordResetView(views.APIView):
 class UserPasswordResetConfirmView(views.APIView):
     permission_classes = (permissions.AllowAny, )
 
+    @sensitive_post_parameters_m
+    def dispatch(self, *args, **kwargs):
+        return super(UserPasswordResetConfirmView, self).dispatch(*args, **kwargs)
+    
     def get_serializer(self, *args, **kwargs):
         return UserPasswordResetConfirmSerializer(*args, **kwargs)
 

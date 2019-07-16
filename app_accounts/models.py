@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.utils.translation import ugettext, ugettext_lazy as _
 from django.utils import timezone
+from django.db.models import signals
+from django.core.mail import send_mail
 
 from phonenumber_field.modelfields import PhoneNumberField
 
