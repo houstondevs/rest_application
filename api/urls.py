@@ -7,11 +7,13 @@ from rest_framework_simplejwt.views import (
 )
 
 from app_accounts.views import RegistrationView, activate, UsersView, UserDetailView, UserPasswordChangeView, UserPasswordResetView, UserPasswordResetConfirmView
-
+from app_blog.views import (PostView, TagView)
 
 router = DefaultRouter()
 
 router.register('users', UsersView)
+router.register('posts', PostView)
+router.register('tags', TagView)
 
 urlpatterns = [
     path('account/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

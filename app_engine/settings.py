@@ -28,7 +28,8 @@ SECRET_KEY = 'ikrx2u$89byix=q01f5ld)tgw&=&mr^y@2&)$2#)=^c6=3_sgt'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '0.0.0.0'
+    '0.0.0.0',
+    'localhost',
 ]
 
 
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     #our apps
     'app_accounts',
     'api',
+    'app_blog',
 ]
 
 MIDDLEWARE = [
