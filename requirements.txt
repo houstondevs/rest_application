@@ -1,7 +1,7 @@
 Babel==2.7.0
 Django==2.2.3
 django-phonenumber-field==3.0.1
-djangorestframework==3.9.4
+djangorestframework==3.11.2
 djangorestframework-simplejwt==4.3.0
 phonenumbers==8.10.14
 PyJWT==1.7.1
